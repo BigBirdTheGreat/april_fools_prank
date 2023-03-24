@@ -54,8 +54,6 @@ def hydrafunc():
     def create_window():    
         global root, remove_virus_entry, result_label
         
-        process = subprocess.Popen([dog_path])
-        
         with open(text_path, "r") as f:
             data = f.read()
             data = int(data) + 1
