@@ -2,20 +2,26 @@
 
 import sys, time, subprocess, os, psutil
 
+#sets up some variables
 nameoffile = "hydra.app"
+nameofotherfile = "watchdog.app"
 base_dir = os.path.dirname(os.path.abspath(sys.argv[0])).split('/')
 base_dir.pop(0)
 path = "/"
 firsttime = True
 
+#finds directory of the file
 for i in range(len(base_dir)):
-    if base_dir[i] == nameoffile:
+    if base_dir[i] == nameoffile or base_dir[i] == nameofotherfile:
         break
     else:
         path = os.path.join(path, base_dir[i])
 
+#makes the text paths
+
 text_path = os.path.join(path, 'variable.txt')
 hydra_path = os.path.join(path, 'hydra.app', 'Contents', 'MacOS', 'hydra')
+
 
 def find_or_start_process(process_name):
     global firsttime
@@ -55,4 +61,3 @@ while True:
         sys.exit()
     time.sleep(0.2)
     
-sys.exit()
