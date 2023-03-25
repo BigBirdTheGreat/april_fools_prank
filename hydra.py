@@ -13,6 +13,7 @@ entries = [] #list of password entries
 
 #importing things to make sure watchdog lives
 nameoffile = "watchdog.app" #name of resurrecting file
+nameofotherfile = "hydra.app"
 base_dir = os.path.dirname(os.path.abspath(sys.argv[0])).split('/') 
 base_dir.pop(0)
 path = "/"
@@ -22,7 +23,7 @@ stop_event = threading.Event() # creates event to help stop threads at same time
 
 #gets the directory allowing mayhem to begin
 for i in range(len(base_dir)):
-    if base_dir[i] == nameoffile:
+    if base_dir[i] == nameoffile or base_dir[i] == nameofotherfile:
         break
     else:
         path = os.path.join(path, base_dir[i])
