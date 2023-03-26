@@ -7,7 +7,7 @@ import sys, time, random as rm, subprocess, tkinter as tk, os, psutil
 root = tk.Tk()
 root.withdraw()
 
-hashed = "ShreyPleaseStop" # password
+hashed = "PleaseStopIt" # password
 windows = [] #list of windows
 entries = [] #list of password entries
 
