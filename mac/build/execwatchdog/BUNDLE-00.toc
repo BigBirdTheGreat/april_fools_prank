@@ -1,0 +1,3 @@
+([('execwatchdog',
+   '/Users/shreyshingala/Downloads/April_Fools_Arsenal/april_fools_virus/mac/dist/execwatchdog',
+   'EXECUTABLE')],)
