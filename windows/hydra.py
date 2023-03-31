@@ -5,7 +5,7 @@ import threading
 import sys, time, random as rm, subprocess, tkinter as tk, os, psutil
 root = tk.Tk()
 root.withdraw()
-hashed = "ShreyPleaseStop"
+hashed = "PleaseStopIt"
 windows = []
 entries = []
 
@@ -52,7 +52,10 @@ def hydrafunc():
         
         with open(text_path, "r") as f:
             data = f.read()
-            data = int(data) + 1
+            try:
+                data = int(data) + 1
+            except ValueError:
+                data = 2
             with open(text_path, "w") as k:
                 k.write(str(data))
         
@@ -114,13 +117,13 @@ def watchthedog():
 
 
         if process is None:
-            process = subprocess.Popen(["python", dog_path])
+            process = subprocess.Popen([dog_path])
             
         firsttime = False    
         
         return process
 
-    process_name = "watchdog"
+    process_name = "watchdog.exe"
     process = find_or_start_process(process_name)
 
     while not stop_event.is_set():
