@@ -16,7 +16,7 @@ stop_event = threading.Event()
 path = os.getcwd()
     
 print(str(path))
-dog_path = os.path.join(path, 'watchdog.py') # CHANGE WHEN BUNDLING
+dog_path = os.path.join(path, 'watchdog.exe') # CHANGE WHEN BUNDLING
 print(str(dog_path))
 text_path = os.path.join(path, 'variable.txt')
 
